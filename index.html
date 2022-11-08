@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="menuIsOpen:false">
+<html lang="en" x-data="{menuIsOpen:false}" :class="{noscroll:menuIsOpen,}">
   <head>
 
     <meta charset="UTF-8" />
@@ -7,22 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test menu</title>
     <script defer src="https://unpkg.com/alpinejs"></script>
+    <style>
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      display: grid;
+      place-content: center;
+    }
+    .header__menuBtn {
+      position: relative;
+      z-index: 10;
+    }
+    .noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+    </style>
   </head>
   <body>
     <!-- https://emmet.io/ -->
     <!-- header>h1{Test de menu} -->
     <header>
       <button aria-controls="mainNav"
-      :aria-expanded="menuIsOpen"
-      @click="menuIsOpen = ! menuIsOpen">menu</button>
+      @click="menuIsOpen = ! menuIsOpen"
+      class="header__menuBtn">
+      menu</button>
       <h1>Test de menu</h1>
 
-      <nav x-data="{menuIsOpen:true}" x-show="true" id="mainNav">
+      <nav x-show="menuIsOpen" id="mainNav" x-transition.duration.800ms class="menu">
         <ul>
           <li><a href="#">item 1</a></li>
           <li><a href="#">item 2</a></li>
           <li><a href="#">item 3</a></li>
-         
+
         </ul>
       </nav>
     </header>
