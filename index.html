@@ -55,17 +55,17 @@
       nemo aliquid pariatur quam voluptates animi laudantium, aperiam
       consectetur nobis enim.
     </p>
-    <dl x-data="Lorem:false">
+    <dl x-data="{Lorem:false}">
       <dt @click="lorem = ! lorem">Lorem.</dt>
       <dd x-show="lorem">Lorem ipsum dolor sit amet.</dd>
     </dl>
-    <dl x-data="Consequuntur:false">
+    <dl x-data="{Consequuntur:false}">
       <dt  @click="Consequuntur = ! Consequuntur">Consequuntur.</dt>
       <dd x-show="Consequuntur">Maiores eum expedita minus qui.</dd>
     </dl>
-    <dl>
-      <dt>Voluptatibus!</dt>
-      <dd>Magni esse laboriosam optio ipsa?</dd>
+    <dl x-data="{Voluptatibus:false}">
+      <dt @click="Voluptatibus = ! Voluptatibus!">Voluptatibus</dt>
+      <dd x-show="Voluptatibus">Magni esse laboriosam optio ipsa?</dd>
     </dl>
   </body>
 </html>
